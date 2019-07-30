@@ -42,8 +42,7 @@ namespace FileUploadWebApi
                 app.UseHsts();
             }
 
-            app.UseCors(options => options.WithOrigins("http://localhost:4200")
-                    .AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
         }

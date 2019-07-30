@@ -1,0 +1,56 @@
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="jumbotron-heading">File Upload App</h1>
+      <p class="lead text-muted">Please choose a file &lt; 2MB to upload and the result will be displayed below.</p>
+      <p>
+        <input type="file" class="btn btn-primary my-2 mr-2" (change)="onFileChange($event)"/>
+        <button class="btn btn-secondary my-2" (click)="uploadFile()" [disabled]="!theFile">Upload File</button>      
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <!-- ** BEGIN: INFORMATION MESSAGE AREA ** -->
+          <div class="text-center" *ngIf="messages.length > 0">
+            <span *ngFor="let msg of messages">
+              {{msg}}
+              <br />
+              <br />
+            </span>
+          </div>
+          <!-- ** END: INFORMATION MESSAGE AREA ** -->
+          <table *ngIf="fileData.length > 0" class="table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Filename: </th>
+                <th scope="col">{{fileData[0]}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">File Size: </th>
+                <td>{{fileData[1]}}</td>
+              </tr>
+              <tr>
+                <th scope="row">File Type: </th>
+                <td>{{fileData[2]}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Uploaded: </th>
+                <td>{{fileData[3]}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+</main>
+      
